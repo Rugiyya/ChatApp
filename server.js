@@ -4,6 +4,8 @@ var app = express()
 
 app.use(express.static(__dirname))
 app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: false }))
+
 var messages = [
   { name: "Rugi", message: "Hi" },
   { name: "Ali", message: "Hello" },
@@ -21,4 +23,5 @@ app.post("/messages", (req, res) => {
 var server = app.listen(3000, () => {
   console.log('server is lising on port', server.address().port)
 })
+
 
